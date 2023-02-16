@@ -23,11 +23,9 @@ public:
     int rangeSumBST(TreeNode* root, int low, int high) {
         vector<int>v;
         inorder(root, v);
-        int l = find(v.begin(), v.end(), low) - v.begin();
-        int h = find(v.begin(), v.end(), high) - v.begin();
         int ans = 0;
         for(int i = 0; i < v.size(); i++){
-            if(i>=l and i<=h){
+            if(v[i]>=low and v[i]<=high){
                 ans += v[i];
             }
         }
