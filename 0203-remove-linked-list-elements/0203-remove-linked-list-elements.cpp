@@ -28,17 +28,27 @@ private:
     }
 public:
     ListNode* removeElements(ListNode* Head, int val) {
-        vector<int>v;
-        ListNode* temp = Head;
-        while(temp != NULL){
-            if(temp->val != val){
-                v.push_back(temp->val);
+        // vector<int>v;
+        // ListNode* temp = Head;
+        // while(temp != NULL){
+        //     if(temp->val != val){
+        //         v.push_back(temp->val);
+        //     }
+        //     temp = temp->next;
+        // }
+        // for(auto it : v){
+        //     insertAtEnd(head, it);
+        // }
+        // return head;
+        ListNode* temp = new ListNode;
+        temp->next = Head;
+        ListNode* curr = temp;
+        while(curr->next != NULL){
+            if(curr->next->val == val){
+                curr->next = curr->next->next;
             }
-            temp = temp->next;
+            else curr = curr->next;
         }
-        for(auto it : v){
-            insertAtEnd(head, it);
-        }
-        return head;
+        return temp->next;
     }
 };
