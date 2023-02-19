@@ -28,6 +28,7 @@ private:
     }
 public:
     ListNode* removeElements(ListNode* Head, int val) {
+        //***********************************
         // vector<int>v;
         // ListNode* temp = Head;
         // while(temp != NULL){
@@ -40,6 +41,7 @@ public:
         //     insertAtEnd(head, it);
         // }
         // return head;
+        //************************************
         ListNode* temp = new ListNode;
         temp->next = Head;
         ListNode* curr = temp;
