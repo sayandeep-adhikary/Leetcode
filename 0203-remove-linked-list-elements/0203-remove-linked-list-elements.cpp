@@ -39,10 +39,6 @@ public:
         for(auto it : v){
             insertAtEnd(head, it);
         }
-        for(auto it : v){
-            cout<<it<<" ";
-        }
-        cout<<endl;
         return head;
     }
 };
