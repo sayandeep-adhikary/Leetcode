@@ -20,14 +20,14 @@ private:
         }
         return true;
     }
-    pair<ListNode*, ListNode*> mid(ListNode* head){
+    ListNode* mid(ListNode* head){
         ListNode* slow = head;
         ListNode* fast = head->next;
         while(fast != NULL and fast->next != NULL){
             fast = fast -> next -> next;
             slow = slow->next;
         }
-        return make_pair(slow, fast);
+        return slow;
     }
     ListNode* reverse(ListNode* &head){
         ListNode* curr = head;
@@ -52,8 +52,7 @@ public:
         // return isPalindrome(arr);
         //*************************************
         if(head ->next == NULL) return true;
-        ListNode* middle = mid(head).first;
-        ListNode* fast = mid(head).second;
+        ListNode* middle = mid(head);
         ListNode* curr = middle->next;
         middle->next = reverse(curr);
         ListNode* head1 = head;
