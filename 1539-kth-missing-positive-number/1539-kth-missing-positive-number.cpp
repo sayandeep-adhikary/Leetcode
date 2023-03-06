@@ -8,8 +8,6 @@ public:
                 missing.push_back(i);
             }
         }
-        for(auto it : missing) cout<<it<<" ";
-        cout<<endl;
         if(missing.size() >=k){
             return missing[k-1];
         }
