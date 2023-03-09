@@ -21,8 +21,34 @@ private:
     }
 public:
     vector<int> inorderTraversal(TreeNode* root) {
+        // vector<int>v;
+        // inorder(root, v);
+        // return v;
+        //****************************************
+        //Morris Traversal
         vector<int>v;
-        inorder(root, v);
+        TreeNode* curr = root;
+        while(curr != NULL){
+            if(curr->left == NULL){
+                v.push_back(curr->val);
+                curr = curr->right;
+            }
+            else{
+                TreeNode* predecessor = curr->left;
+                while(predecessor->right != NULL and predecessor->right != curr){
+                    predecessor = predecessor->right;
+                }
+                if(predecessor->right == NULL){
+                    predecessor->right = curr;
+                    curr = curr->left;
+                }
+                else{
+                    predecessor->right = NULL;
+                    v.push_back(curr->val);
+                    curr = curr->right;
+                }
+            }
+        }
         return v;
     }
 };
