@@ -12,6 +12,7 @@
 class Solution {
 public:
     void flatten(TreeNode* root) {
+        //Application of Morris Traversal
         TreeNode* curr = root;
         while(curr != NULL){
             if(curr->left != NULL){
