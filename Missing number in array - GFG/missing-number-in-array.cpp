@@ -13,7 +13,6 @@ using namespace std;
 class Solution{
   public:
     int MissingNumber(vector<int>& array, int n) {
-        sort(array.begin(), array.end());
         int sum = accumulate(array.begin(), array.end(), 0);
         int total = n*(n+1)/2;
         return total - sum;
