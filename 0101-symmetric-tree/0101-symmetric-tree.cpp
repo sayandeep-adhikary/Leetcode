@@ -10,11 +10,11 @@
  * };
  */
 class Solution {
-    bool solve(TreeNode* left, TreeNode* right){
-        if(left == NULL and right == NULL) return true;
-        else if(left == NULL or right == NULL) return false;
-        else if(left->val != right->val) return false;
-        return solve(left->left, right->right) and solve(left->right, right->left);
+    bool solve(TreeNode* leftSubtree, TreeNode* rightSubtree){
+        if(leftSubtree == NULL and rightSubtree == NULL) return true;
+        else if(leftSubtree == NULL or rightSubtree == NULL) return false;
+        else if(leftSubtree->val != rightSubtree->val) return false;
+        return solve(leftSubtree->left, rightSubtree->right) and solve(leftSubtree->right, rightSubtree->left);
     }
 public:
     bool isSymmetric(TreeNode* root) {
