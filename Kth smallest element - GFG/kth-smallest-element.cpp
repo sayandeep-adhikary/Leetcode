@@ -17,13 +17,36 @@ class Solution{
         // int n = l+r+1;
         // sort(arr, arr+n);
         // return arr[k-1];
-        priority_queue<int, vector<int>, greater<int>>pq;
-        int size = l+r+1;
-        for(int i=0; i<size; i++){
+        
+        
+        
+        
+        //**************************************************
+        //USING MIN HEAP
+        // priority_queue<int, vector<int>, greater<int>>pq;
+        // int size = l+r+1;
+        // for(int i=0; i<size; i++){
+        //     pq.push(arr[i]);
+        // }
+        // for(int i=1; i<k; i++){
+        //     pq.pop();
+        // }
+        // return pq.top();
+        //***************************************************
+        
+        
+        
+        
+        //USING MAX HEAP
+        priority_queue<int>pq;
+        for(int i=0; i<k; i++){
             pq.push(arr[i]);
         }
-        for(int i=1; i<k; i++){
-            pq.pop();
+        for(int i=k; i<l+r+1; i++){
+            if(arr[i] < pq.top()){
+                pq.pop();
+                pq.push(arr[i]);
+            }
         }
         return pq.top();
     }
