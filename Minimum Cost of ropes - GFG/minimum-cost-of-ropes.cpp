@@ -19,9 +19,8 @@ class Solution
             pq.pop();
             long long b = pq.top();
             pq.pop();
-            long long sum = a + b;
-            ans += sum;
-            pq.push(sum);
+            ans += (a+b);
+            pq.push(a+b);
         }
         return ans;
     }
