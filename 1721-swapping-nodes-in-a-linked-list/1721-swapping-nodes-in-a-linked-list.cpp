@@ -34,6 +34,7 @@ private:
     }
 public:
     ListNode* swapNodes(ListNode* head, int k) {
+        //T.C = O(n), S.C = O(n);
         // vector<int>v;
         // ListNode* curr = head;
         // ListNode* ansHead = NULL;
@@ -49,6 +50,7 @@ public:
         // }
         // return ansHead;
         //***********************************
+        //T.C = O(n), S.C = O(1);
         int l = getLength(head);
         ListNode* first = head;
         ListNode* second = head;
