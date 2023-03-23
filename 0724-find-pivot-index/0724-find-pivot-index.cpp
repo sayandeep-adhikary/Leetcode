@@ -16,10 +16,20 @@ private:
     }
 public:
     int pivotIndex(vector<int>& nums) {
+        // for(int i=0; i<nums.size(); i++){
+        //     int lsum = getLSum(nums, i);
+        //     int rsum = getRSum(nums, i);
+        //     if(lsum == rsum) return i;
+        // }
+        // return -1;
+        int sum = accumulate(nums.begin(), nums.end(), 0);
+        int lSum = 0;
         for(int i=0; i<nums.size(); i++){
-            int lsum = getLSum(nums, i);
-            int rsum = getRSum(nums, i);
-            if(lsum == rsum) return i;
+            lSum += nums[i];
+            if(lSum == sum) return i;
+            else{
+                sum -= nums[i];
+            }
         }
         return -1;
     }
