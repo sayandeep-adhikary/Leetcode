@@ -6,7 +6,7 @@ public:
         string s;
         while(temp != 0){
             rem = temp % 10;
-            s.push_back(48+rem);
+            s.push_back(rem+'0');
             temp /= 10;
         }
         reverse(s.begin(), s.end());
