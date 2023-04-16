@@ -7,11 +7,8 @@ private:
         for(int p=s; p<=i+1; p++){
             for(int q=e; q<=j+1; q++){
                 maxi = max(maxi, grid[p][q]);
-                cout<<grid[p][q]<<" ";
             }
-            cout<<endl;
         }
-        cout<<endl;
         return maxi;
     }
 public:
