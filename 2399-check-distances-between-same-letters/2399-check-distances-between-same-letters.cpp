@@ -7,10 +7,6 @@ public:
             int vidx = s[i] - 'a';
             if(v[vidx] == -1) v[vidx] = i; 
         }
-        // for(auto it : v){
-        //     cout<<it<<" ";
-        // }
-        // cout<<endl;
         for(int i=0; i<s.size(); i++){
             int vidx = s[i] - 'a';
             mp[s[i]]++;
