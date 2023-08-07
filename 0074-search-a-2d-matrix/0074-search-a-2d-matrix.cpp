@@ -1,10 +1,16 @@
 class Solution {
 public:
     bool searchMatrix(vector<vector<int>>& matrix, int target) {
-        vector<int>ans;
-        for(auto it : matrix){
-            for(auto a : it) ans.push_back(a);
+        int n = matrix.size();
+        int m = matrix[0].size();
+        int l = 0, r = m * n - 1;
+        while (l != r){
+            int mid = (l + r - 1) >> 1;
+            if (matrix[mid / m][mid % m] < target)
+                l = mid + 1;
+            else 
+                r = mid;
         }
-        return find(ans.begin(), ans.end(), target) != ans.end();
+        return matrix[r / m][r % m] == target;
     }
 };
