@@ -14,41 +14,22 @@ class Solution{
     // r : ending index of the array i.e size-1
     // k : find kth smallest element and return using this function
     int kthSmallest(int arr[], int l, int r, int k) {
-        // int n = l+r+1;
-        // sort(arr, arr+n);
-        // return arr[k-1];
-        
-        
-        
-        
-        //**************************************************
-        //USING MIN HEAP
-        // priority_queue<int, vector<int>, greater<int>>pq;
-        // int size = l+r+1;
-        // for(int i=0; i<size; i++){
-        //     pq.push(arr[i]);
+        //code here
+        // priority_queue<int, vector<int>, greater<int>>q;
+        // int ans = -1;
+        int n = r-l+1;
+        sort(arr, arr+n);
+        return arr[k-1];
+        // for(int i=0; i<n; i++){
+        //     q.push(arr[i]);
         // }
-        // for(int i=1; i<k; i++){
-        //     pq.pop();
+        // while(k != 0 and q.size()!=0){
+        //     cout<<q.top()<<"->";
+        //     ans = q.top();
+        //     q.pop();
+        //     k--;
         // }
-        // return pq.top();
-        //***************************************************
-        
-        
-        
-        
-        //USING MAX HEAP
-        priority_queue<int>pq;
-        for(int i=0; i<k; i++){
-            pq.push(arr[i]);
-        }
-        for(int i=k; i<l+r+1; i++){
-            if(arr[i] < pq.top()){
-                pq.pop();
-                pq.push(arr[i]);
-            }
-        }
-        return pq.top();
+        // return ans;
     }
 };
 
