@@ -10,23 +10,14 @@ class Solution
     public:
     void sort012(int a[], int n)
     {
-        int zeroCount = 0;
-        int oneCount = 0;
-        int twoCount = 0;
-        for(int i=0; i<n; i++){
-            if(a[i] == 0) zeroCount++;
-            else if(a[i] == 1) oneCount++;
-            else twoCount++;
-        }
-        int j=0;
-        for(int i=0; i<zeroCount; i++){
-            a[j++] = 0;
-        }
-        for(int i=0; i<oneCount; i++){
-            a[j++] = 1;
-        }
-        for(int i=0; i<twoCount; i++){
-            a[j++] = 2;
+        // code here 
+        int low=0;
+        int mid=0;
+        int high=n-1;
+        while(mid <= high){
+            if(a[mid] == 0) swap(a[low++], a[mid++]);
+            else if(a[mid] == 1) mid++;
+            else if(a[mid] == 2)swap(a[mid], a[high--]);
         }
     }
     
