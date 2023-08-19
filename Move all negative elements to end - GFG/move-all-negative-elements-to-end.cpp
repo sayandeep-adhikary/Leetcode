@@ -7,14 +7,17 @@ class Solution{
     public:
     void segregateElements(int arr[],int n)
     {
-        vector<int>pos;
-        vector<int>neg;
+        // Your code goes here
+        vector<int>pos, neg;
         for(int i=0; i<n; i++){
-            if(arr[i] >= 0) pos.push_back(arr[i]);
-            else neg.push_back(arr[i]);
+            if(arr[i] < 0) neg.push_back(arr[i]);
+            else pos.push_back(arr[i]);
         }
-        for(int i=0; i<pos.size(); i++) arr[i] = pos[i];
-        for(int i=0; i<neg.size(); i++) arr[pos.size()+i] = neg[i];
+        pos.insert(pos.end(), neg.begin(), neg.end());
+        int i=0;
+        for(auto it : pos){
+            arr[i++] = it;
+        }
     }
 };
 
