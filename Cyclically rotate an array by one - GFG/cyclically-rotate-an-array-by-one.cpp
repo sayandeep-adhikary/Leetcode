@@ -31,9 +31,12 @@ int main()
 
 void rotate(int arr[], int n)
 {
-    int ele = arr[n-1];
-    for(int i=n-1; i>=1; i--){
-        arr[i] = arr[i-1];
+    list<int>ls;
+    for(int i=0; i<n; i++){
+        ls.push_back(arr[i]);
     }
-    arr[0] = ele;
+    ls.push_front(arr[n-1]);
+    ls.pop_back();
+    int i = 0;
+    for(auto it : ls) arr[i++] = it;
 }
