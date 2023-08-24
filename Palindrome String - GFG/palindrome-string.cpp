@@ -10,12 +10,12 @@ class Solution{
 public:	
 	
 	
-	int isPalindrome(string S)
+	int isPalindrome(string s)
 	{
 	    int i=0;
-	    int j=S.size()-1;
+	    int j=s.size()-1;
 	    while(i<j){
-	        if(S[i++] != S[j--]) return 0;
+	        if(s[i++] != s[j--]) return 0;
 	    }
 	    return 1;
 	}
