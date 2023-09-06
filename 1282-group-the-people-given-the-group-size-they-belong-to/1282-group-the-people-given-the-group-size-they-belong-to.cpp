@@ -6,11 +6,6 @@ public:
         int i=0;
         for(auto it : g) mp[it].push_back(i++);
         for(auto it : mp){
-            cout<<it.first<<"-> [";
-            for(auto a : it.second) cout<<a<<" ";
-            cout<<"]"<<endl;
-        }
-        for(auto it : mp){
             int temp = it.first;
             int i = 0;
             vector<int>v;
