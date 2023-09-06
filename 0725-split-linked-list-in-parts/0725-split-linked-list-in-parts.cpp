@@ -1,6 +1,15 @@
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
 class Solution {
 private:
-    // Function to get the length of the linked list
     int getLength(ListNode* head){
         int l = 0;
         ListNode* temp = head;
@@ -10,7 +19,6 @@ private:
         }
         return l;
     }
-    // function to insert a node at the end of a linked list
     void insertAtEnd(int data, ListNode* &head, ListNode* &tail){
         ListNode* temp = new ListNode(data);
         if(head == NULL){
@@ -24,20 +32,20 @@ private:
     }
 public:
     vector<ListNode*> splitListToParts(ListNode* head, int k) {
-        vector<ListNode*>ans; // ans to be returned
-        int l = getLength(head); // length stored in l
-        ListNode* temp = head; // dummy node pointing on the head
-        int b=l%k; // no of lists which will have one extra element
-        for(int i=1; i<=k; i++){ // the ans vector always has k elements so loop will run k times
-            ListNode* ansHead = NULL; // head of each linked list in the ans vector
+        vector<ListNode*>ans;
+        int l = getLength(head);
+        ListNode* temp = head;
+        int b=l%k;
+        for(int i=1; i<=k; i++){
+            ListNode* ansHead = NULL;
             ListNode* tail = NULL;
-            int t = l/k; // no of elements each linked list will have 
-            if(i<=b) t++; // as the first b lists will have one extra node
+            int t = l/k;
+            if(i<=b) t++;
             while(t--){
-                insertAtEnd(temp->val, ansHead, tail); // inserting nodes at the end
+                insertAtEnd(temp->val, ansHead, tail);
                 temp = temp->next;
             }
-            ans.push_back(ansHead); // push back each linked list to the ans vector
+            ans.push_back(ansHead);
         }
         return ans;
     }
