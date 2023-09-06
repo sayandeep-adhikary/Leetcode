@@ -35,7 +35,6 @@ public:
         vector<ListNode*>ans;
         int l = getLength(head);
         ListNode* temp = head;
-        int a=l/k;
         int b=l%k;
         for(int i=1; i<=k; i++){
             ListNode* ansHead = NULL;
@@ -48,26 +47,6 @@ public:
             }
             ans.push_back(ansHead);
         }
-        
-        
-//         if(l < k){
-            
-//         }
-//         else if(l == k){
-//             for(int i=0; i<k; i++){
-//                 ListNode* ansHead = NULL;
-//                 ListNode* tail = NULL;
-//                 int t = l/k;
-//                 while(t--){
-//                     insertAtEnd(temp->val, ansHead, tail);
-//                     temp = temp->next;
-//                 }
-//                 ans.push_back(ansHead);
-//             }
-//         }
-//         else{
-            
-//         }
         return ans;
     }
 };
