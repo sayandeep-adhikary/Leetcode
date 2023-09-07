@@ -39,9 +39,6 @@ public:
         ListNode *end = head;
         ListNode *temp = start;
         ListNode* nextToEnd = NULL;
-       if(left==1 && right==1){
-           return head;
-       }
         int cnt = 1 ;
         
         while(cnt<left){
