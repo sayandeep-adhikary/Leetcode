@@ -14,17 +14,13 @@ private:
       
          ListNode *curr = start;
          ListNode *prev = NULL ;
-         ListNode *forward = NULL;
-              
-           while(curr != end  ){
-            
+         ListNode *forward = NULL;  
+           while(curr != end){
               forward = curr->next;
               curr -> next = prev;
-         
              prev = curr;
             curr = forward;
         }
-          
         return prev;
     }
 
@@ -40,7 +36,6 @@ public:
         ListNode *temp = start;
         ListNode* nextToEnd = NULL;
         int cnt = 1 ;
-        
         while(cnt<left){
             temp=start;
             start=start->next;
@@ -48,31 +43,26 @@ public:
         }
         cnt = 1;
            while(cnt<right){
-            end=end->next;
-               
+            end=end->next;   
             cnt++;
         }
         nextToEnd = end->next  ;
         
         if(left==1 ){
          head = reverse(start, nextToEnd);
-          ListNode *tail = head;
-        
-        while(tail->next!=NULL){
-            tail=tail->next;
-         }
-                    tail->next = nextToEnd ;
-             return head;
-        }
-        
+         ListNode *tail = head;
+             while(tail->next!=NULL){
+                 tail=tail->next;
+             }
+            tail->next = nextToEnd ;
+            return head;
+        }  
        temp->next = reverse(start, nextToEnd);
-    
-        ListNode *tail = head;
-        
-        while(tail->next!=NULL){
-            tail=tail->next;
-        }
-        tail->next = nextToEnd ;
+       ListNode *tail = head;
+       while(tail->next!=NULL){
+        tail=tail->next;
+       }
+       tail->next = nextToEnd ;
        return head;
     }
 };
