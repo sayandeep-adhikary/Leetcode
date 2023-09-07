@@ -2,7 +2,7 @@
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2021/02/19/rev2ex2.jpg" style="width: 542px; height: 222px;">
+<img alt="" src="https://assets.leetcode.com/uploads/2021/02/19/rev2ex2.jpg" style="width: 542px; height: 222px;" naptha_cursor="text">
 <pre><strong>Input:</strong> head = [1,2,3,4,5], left = 2, right = 4
 <strong>Output:</strong> [1,4,3,2,5]
 </pre>
