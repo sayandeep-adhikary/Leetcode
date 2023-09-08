@@ -1,12 +1,12 @@
 class Solution {
 private:
-    int getPower(int i){
+    int getPower(int i, vector<int>&dp){
         int cnt = 0;
-        // int j = i;
+        int j = i;
         while(i != 1){
-            // if(dp[i] != -1){
-            //     return cnt + dp[i];
-            // }
+            if((i <= 1000) and (dp[i] != -1)){
+                return cnt + dp[i];
+            }
             cnt++;
             if(i&1){
                 i = (3*i) + 1;
@@ -15,7 +15,7 @@ private:
                 i = i / 2;
             }
         }
-        // dp[j] = i;
+        dp[j] = cnt;
         return cnt;
     }
 public:
@@ -24,10 +24,10 @@ public:
         else return a.second < b.second;
     }
     int getKth(int lo, int hi, int k) {
-        // vector<int>dp(1001, -1);
+        vector<int>dp(1001, -1);
         vector<pair<int, int>>v;
         for(int i=lo; i<=hi; i++){
-            int power = getPower(i);
+            int power = getPower(i, dp);
             v.push_back({i, power});
         }
         sort(v.begin(), v.end(), cmp);
