@@ -96,20 +96,34 @@ struct Node {
 // return the Kth largest element in the given BST rooted at 'root'
 class Solution
 {
-    private:
-    void inorder(Node* root, vector<int>&v){
-        if(root == NULL) return;
-        inorder(root->left, v);
-        v.push_back(root->data);
-        inorder(root->right, v);
-    }
     public:
-    int kthLargest(Node *root, int K)
-    {
-        vector<int>v;
-        inorder(root,v);
-        return v[v.size()- K];
+    
+    void largest(Node* root,vector<int >& arr){
+         if(root==NULL){
+         return ;
+       }
+       
+       largest(root->left,arr);
+       arr.push_back(root->data);
+       largest(root->right,arr);
+       
+       return;
     }
+    
+    int kthLargest(Node *root, int K)
+    {   
+      
+       
+        //Your code here
+        vector<int> arr;
+      
+        largest(root,arr);
+       
+        int n=arr.size();
+        if(n<K)return -1;
+   
+     return arr[n-K]; 
+  }
 };
 
 //{ Driver Code Starts.
