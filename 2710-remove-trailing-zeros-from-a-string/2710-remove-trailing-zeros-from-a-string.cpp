@@ -1,16 +1,15 @@
 class Solution {
 public:
     string removeTrailingZeros(string num){
-        int l = num.size();
-        string ans = "";
-        bool flag = true;
-        for(int i=l-1; i>=0; i--){
-            if((num[i] == '0') and (flag == false)) ans = num[i] + ans;
+        int final;
+   
+        for(int i=num.size()-1;i>=0;i--){
             if(num[i] != '0'){
-                ans = num[i] + ans;
-                flag = false;
+                final =i;
+                break;
             }
+           
         }
-        return ans;
+         return num.substr(0,final+1);
     }
 };
