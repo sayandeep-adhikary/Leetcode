@@ -39,7 +39,6 @@ struct Node
     }
 };
 */
-
 class Solution{
     private:
     Node* insertAtPos(struct Node* &head, int data, int pos){
