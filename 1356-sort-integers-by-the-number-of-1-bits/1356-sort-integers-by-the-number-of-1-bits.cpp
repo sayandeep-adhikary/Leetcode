@@ -21,7 +21,6 @@ public:
             v.push_back({it, cnt});
         }
         sort(v.begin(), v.end(), cmp);
-        // for(auto it : v) cout<<it.first<<" "<<it.second<<endl;
         for(auto it : v) ans.push_back(it.first);
         return ans;
     }
