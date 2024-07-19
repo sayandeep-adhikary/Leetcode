@@ -6,13 +6,12 @@ public:
         for(auto it : nums){
             if(it == 1){
                 count++;
+                ans = max(ans, count);
             }
             else{
-                ans = max(ans, count);
                 count = 0;
             }
         }
-        ans = max(ans, count);
         return ans;
     }
 };
