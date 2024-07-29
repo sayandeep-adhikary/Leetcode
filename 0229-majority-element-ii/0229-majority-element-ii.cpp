@@ -1,12 +1,12 @@
 class Solution {
 public:
     vector<int> majorityElement(vector<int>& nums) {
+        map<int, int>mp;
         vector<int>ans;
-        map<int, int>m;
-        float size = nums.size()/3;
-        for(auto it : nums) m[it]++;
-        for(auto it : m){
-            if(it.second > size) ans.push_back(it.first);
+        for(auto it : nums){
+            mp[it]++;
+            if(mp[it] == (int)(nums.size() / 3) + 1) ans.push_back(it);
+            if(ans.size() == 2) break;
         }
         return ans;
     }
