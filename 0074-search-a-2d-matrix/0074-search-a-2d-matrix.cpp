@@ -1,16 +1,24 @@
 class Solution {
 public:
+    bool isPresent(vector<int>v, int n, int target){
+        int low = 0, high = n-1;
+        while(low <= high){
+            int mid = low+(high-low)/2;
+            if(v[mid] == target) return true;
+            else if(v[mid] < target) low = mid+1;
+            else high = mid-1;
+        }
+        return false;
+    }
     bool searchMatrix(vector<vector<int>>& matrix, int target) {
         int n = matrix.size();
         int m = matrix[0].size();
-        int l = 0, r = m * n - 1;
-        while (l != r){
-            int mid = (l + r - 1) >> 1;
-            if (matrix[mid / m][mid % m] < target)
-                l = mid + 1;
-            else 
-                r = mid;
+        for(auto it : matrix){
+            if(it[0] <= target and it[m-1] >= target){
+                cout << m << endl;
+                return isPresent(it, m, target);
+            }
         }
-        return matrix[r / m][r % m] == target;
+        return false;
     }
 };
