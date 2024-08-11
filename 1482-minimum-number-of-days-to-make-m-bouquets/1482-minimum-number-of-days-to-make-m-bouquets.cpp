@@ -18,16 +18,14 @@ public:
             return -1;
         }
         int low = *min_element(b.begin(), b.end()), high = *max_element(b.begin(), b.end());
-        int ans = -1;
         while(low<=high){
             int mid = low + (high-low)/2;
             int bou = findBou(b, mid, k);
             if(bou >= m){
-                ans = mid;
                 high = mid-1;
             }
             else low = mid+1;
         }
-        return ans;
+        return low;
     }
 };
