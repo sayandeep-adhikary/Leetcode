@@ -1,14 +1,17 @@
 class Solution {
 public:
-    bool rotateString(string s, string goal) {
-        vector<char>v1;
-        vector<char>v2;
-        for(auto it : s)v1.push_back(it);
-        for(auto it : goal)v2.push_back(it);
-        for(int i=0; i<v1.size(); i++){
-            if(v1 == v2) return true;
-            v1.push_back(v1[0]);
-            v1.erase(v1.begin());
+    string rotateS(int ind, string s){
+        reverse(s.begin(), s.begin()+ind+1);
+        reverse(s.begin()+ind+1, s.end());
+        reverse(s.begin(), s.end());
+        return s;
+    }
+    bool rotateString(string s, string g) {
+        if(s.size() != g.size()) return false;
+        for(int i=0; i<s.size(); i++){
+            string temp = rotateS(i, s);
+            cout << temp << endl;
+            if(temp == g) return true;
         }
         return false;
     }
