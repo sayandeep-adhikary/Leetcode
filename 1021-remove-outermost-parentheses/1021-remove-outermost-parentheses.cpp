@@ -1,25 +1,22 @@
 class Solution {
-private:
-    string remove(string a){
-        string ans;
-        for(int i=1; i<a.size()-1; i++) ans += a[i];
+public:
+    string getString(string &s){
+        string ans = "";
+        for(int i=1; i<s.size()-1; i++){
+            ans += s[i];
+        }
         return ans;
     }
-public:
     string removeOuterParentheses(string s) {
         string ans = "";
-        int opCount = 0;
-        int clCount = 0;
         string temp = "";
-        for(int i=0; i<s.size(); i++){
-            temp += s[i];
-            if(s[i] == '(') opCount++;
-            else clCount++;
-            if(opCount == clCount and opCount != 0){
-                // cout<<temp<<endl;
-                ans += remove(temp);
-                opCount = 0;
-                clCount = 0;
+        int cnt1 = 0, cnt2 = 0;
+        for(auto it: s){
+            temp += it;
+            if(it == '(') cnt1++;
+            else cnt2++;
+            if(cnt1 == cnt2){
+                ans += getString(temp);
                 temp = "";
             }
         }
