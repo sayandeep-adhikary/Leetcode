@@ -1,20 +1,20 @@
 class Solution {
 public:
     void rotate(vector<vector<int>>& matrix) {
-        // vector<vector<int>>ans(matrix.size(), vector<int>(matrix[0].size()));
-        // for(int i=0; i<matrix.size(); i++){
-        //     for(int j=0; j<matrix[0].size(); j++){
-        //         ans[j][(matrix.size()-1)-i] = matrix[i][j];
-        //     }
-        // }
-        // matrix = ans;
-        for(int i=0; i<matrix.size(); i++){
-            for(int j=i; j<matrix[0].size(); j++){
-                swap(matrix[i][j], matrix[j][i]);
+        int n = matrix.size();
+        int m = matrix[0].size();
+        int size = n-1;
+        vector<vector<int>> ans(n, vector<int>(m));
+        for(int i=0; i<n; i++){
+            for(int j=0; j<m; j++){
+                ans[j][size] = matrix[i][j];
             }
+            size--;
         }
-        for(auto &it : matrix){
-            reverse(it.begin(), it.end());
+        for(int i=0; i<n; i++){
+            for(int j=0; j<m; j++){
+                matrix[i][j] = ans[i][j];
+            }
         }
     }
 };
