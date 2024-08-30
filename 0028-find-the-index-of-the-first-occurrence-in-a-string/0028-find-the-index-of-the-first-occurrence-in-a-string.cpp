@@ -6,7 +6,7 @@ public:
         string temp = "";
         while(r < haystack.size()){
             temp += haystack[r];
-            while(temp.size() > needle.size()){
+            if(temp.size() > needle.size()){
                 temp.erase(temp.begin());
                 l++;
             }
