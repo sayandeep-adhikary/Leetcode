@@ -1,23 +1,16 @@
 class Solution {
 public:
     bool isIsomorphic(string s, string t) {
-        unordered_map<char, char>mpp;
-        unordered_map<char, bool>vis;
-        for(auto it : s){
-            mpp[it] = '@';
-        }
-        int i=0;
-        while(i<s.size()){
-            char ch1 = s[i];
-            char ch2 = t[i];
-            if(mpp[ch1] == '@' and vis[ch2] == false){
-                mpp[ch1] = ch2;
-                vis[ch2] = true;
+        unordered_map<char, char>mp;
+        unordered_map<char, bool>visited;
+        for(int i=0; i<s.size(); i++){
+            if(mp[s[i]] == 0 and visited[t[i]] == false){
+                mp[s[i]] = t[i];
+                visited[t[i]] = true;
             }
             else{
-                if(mpp[ch1] != ch2) return false;
+                if(mp[s[i]] != t[i]) return false;
             }
-            i++;
         }
         return true;
     }
