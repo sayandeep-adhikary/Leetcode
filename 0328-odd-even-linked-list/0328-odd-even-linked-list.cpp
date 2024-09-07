@@ -10,21 +10,33 @@
  */
 class Solution {
 public:
+    void insertAtEnd(ListNode* &head, ListNode* &tail, int data){
+        ListNode* node = new ListNode(data);
+        if(head == NULL){
+            head = tail = node;
+            return;
+        }
+        tail->next = node;
+        tail = node;
+    }
     ListNode* oddEvenList(ListNode* head) {
         if(head == NULL or head->next == NULL) return head;
-        ListNode* temp1;
-        ListNode* temp2;
-        ListNode* dummy;
-        temp1 = head;
-        temp2 = head->next;
-        dummy = temp2;
-        while(temp2 != NULL and temp2->next != NULL){
-            temp1->next = temp2->next;
-            temp1 = temp1->next;
-            temp2->next = temp1->next;
-            temp2 = temp2->next;
+        ListNode* ansHead = NULL;
+        ListNode* tail = NULL;
+        ListNode* odd = head;
+        ListNode* even = head->next;
+        while(odd != NULL){
+            insertAtEnd(ansHead, tail, odd->val);
+            if(odd->next)
+            odd = odd->next->next ? odd->next->next : NULL;
+            else odd = NULL;
         }
-        temp1->next = dummy;
-        return head;;
+        while(even != NULL){
+            insertAtEnd(ansHead, tail, even->val);
+            if(even->next)
+            even = even->next->next ? even->next->next : NULL;
+            else even = NULL;
+        }
+        return ansHead;
     }
 };
